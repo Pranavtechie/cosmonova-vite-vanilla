@@ -14,10 +14,10 @@ export default function Home() {
 				<h2>Explore the Universe</h2>
 				<p>Embark on an interstellar adventure with us.</p>
 				<div className="button-container">
-					<a className="orbit-button" href="/orbit">
+					<a className="orbit-button" href="/orbit.html">
 						<FaGlobeAmericas /> View Earth Orbit
 					</a>
-					<a className="orbit-button" href="/solar-system">
+					<a className="orbit-button" href="/solar-system.html">
 						<FaSun /> View Solar System
 					</a>
 				</div>
