@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+
+body {
+	margin: 0;
+	font-family: "Orbitron", sans-serif;
+	background: url("/spacex-dragon-unsplash.jpg") no-repeat center center fixed;
+	background-size: cover;
+	color: white;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+}
+
+.landing-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.navbar {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 30px;
+	background: rgba(0, 0, 0, 0.7);
+	position: fixed;
+	top: 0;
+	z-index: 100;
+}
+
+.logo {
+	font-size: 1.8rem;
+	font-weight: bold;
+	color: #00e1ff;
+}
+
+.nav-links {
+	list-style: none;
+	display: flex;
+	gap: 20px;
+}
+
+.nav-links li a {
+	text-decoration: none;
+	color: white;
+	font-size: 1.2rem;
+	transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+	color: #00e1ff;
+}
+
+.hero {
+	position: absolute;
+	top: 22%;
+	left: 24%;
+	transform: translate(-50%, -50%);
+	padding: 50px;
+	text-align: center;
+	width: 80%;
+	max-width: 800px;
+}
+
+.hero h2 {
+	font-size: 3rem;
+	text-shadow: 2px 2px 10px rgba(0, 225, 255, 0.8);
+	margin: 0;
+}
+
+.hero p {
+	font-size: 1.5rem;
+	margin: 20px 0;
+}
+
+.button-container {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	margin-top: 250px;
+}
+
+.orbit-button {
+	padding: 15px 30px;
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: black;
+	background: #00e1ff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: 0.3s;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.orbit-button:hover {
+	background: #0077b6;
+	color: white;
+	transform: scale(1.1);
+}
+
+.features {
+	margin-top: 50px;
+	padding: 50px;
+	background: rgba(0, 0, 0, 0.8);
+	width: 80%;
+	border-radius: 10px;
+}
+
+.features h2 {
+	font-size: 2.5rem;
+	margin-bottom: 20px;
+	text-shadow: 2px 2px 10px rgba(0, 225, 255, 0.8);
+}
+
+.feature-list {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.feature-item {
+	width: 30%;
+	padding: 20px;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 10px;
+	margin: 10px;
+	transition: 0.3s;
+}
+
+.feature-item:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.feature-item h3 {
+	font-size: 1.5rem;
+	color: #00e1ff;
+}
+
+.feature-item p {
+	font-size: 1.1rem;
+}
+
+footer {
+	margin-top: 50px;
+	padding: 20px;
+	background: rgba(0, 0, 0, 0.7);
+	width: 100%;
+	font-size: 1rem;
+}

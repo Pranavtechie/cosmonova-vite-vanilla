@@ -14,8 +14,13 @@
 		"vite-plugin-static-copy": "^2.2.0"
 	},
 	"dependencies": {
+		"@vitejs/plugin-react": "^4.3.4",
 		"cesium": "^1.126.0",
+		"framer-motion": "^12.4.3",
 		"glob": "^11.0.1",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"react-icons": "^5.4.0",
 		"satellite.js": "^5.0.0"
 	}
 }

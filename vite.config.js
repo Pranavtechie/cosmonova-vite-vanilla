@@ -1,24 +1,24 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
 import fg from "fast-glob";
+import react from "@vitejs/plugin-react";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 
 const cesiumSource = "node_modules/cesium/Build/Cesium";
 const cesiumBaseUrl = "cesiumStatic";
 
-// Use fast-glob to locate all top-level HTML files.
-const htmlFiles = fg.sync("*.html", { cwd: __dirname });
+// Include both HTML and JSX entry points
+const entries = fg.sync(["*.html", "src/**/*.jsx"], { cwd: __dirname });
 
-// Build an entry object for Rollup's input.
-// Here, we use the filename (without extension) as the key.
-const input = htmlFiles.reduce((entries, file) => {
-	const name = file.replace(/\.html$/, "");
-	entries[name] = resolve(__dirname, file);
-	return entries;
+const input = entries.reduce((acc, file) => {
+	const name = file.replace(/\.(html|jsx)$/, "");
+	acc[name] = resolve(__dirname, file);
+	return acc;
 }, {});
 
 export default defineConfig({
 	plugins: [
+		react(),
 		viteStaticCopy({
 			targets: [
 				{ src: `${cesiumSource}/ThirdParty`, dest: cesiumBaseUrl },
@@ -28,14 +28,25 @@ export default defineConfig({
 			],
 		}),
 	],
-	// Define additional Cesium-specific configurations
 	define: {
 		CESIUM_BASE_URL: JSON.stringify(cesiumBaseUrl),
 	},
 	build: {
-		// The rollupOptions.input setting makes your build multi-page
 		rollupOptions: {
 			input,
+			output: {
+				// Fix for Cesium nested dependencies
+				manualChunks: (id) => {
+					if (id.includes("cesium")) return "cesium";
+					if (id.includes("node_modules")) return "vendor";
+				},
+			},
+		},
+	},
+	resolve: {
+		alias: {
+			// Add React-specific aliases if needed
+			"@": resolve(__dirname, "./src"),
 		},
 	},
 });
